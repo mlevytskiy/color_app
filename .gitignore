@@ -42,3 +42,6 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# ignore fvm; for people who don't use them
+.fvm/flutter_sdk
