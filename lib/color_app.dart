@@ -1,5 +1,5 @@
 import 'package:color_app/strings.dart';
-import 'package:color_app/util/color_brightness_detector_extension.dart';
+import 'package:color_app/util/color_extension.dart';
 import 'package:color_app/util/random_color_generator.dart';
 import 'package:flutter/material.dart';
 
