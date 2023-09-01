@@ -32,6 +32,10 @@ jobs:
         if: steps.check_files.outputs.files_exists == 'true'
         run: dart pub get dart_code_metrics
 
+      - name: Generate Code
+        if: steps.check_files.outputs.files_exists == 'true'
+        run: flutter pub run build_runner build --delete-conflicting-outputs
+
       - name: Dart Code Metrics
         if: steps.check_files.outputs.files_exists == 'true'
         run: |
@@ -53,9 +57,9 @@ jobs:
               $dirs_to_analyse \
               --fatal-unused
             dart run dart_code_metrics:metrics \
-              check-unused-code \ 
-              $dirs_to_analyse \
-              --fatal-unused
+              check-unused-code \
+              --fatal-unused \
+              $dirs_to_analyse
           fi
 
       - name: Check formatting
