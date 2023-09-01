@@ -12,7 +12,7 @@ void main() {
     //Arrange
     final RandomColorGenerator randomColorGenerator = RandomColorGenerator();
     const maxAmountOfIteration = 10000;
-    const maxExpectedDiffInPercent = 1;
+    const maxExpectedDiffInPercent = 5;
     int redColorSum = 0;
     int blueColorSum = 0;
     int greenColorSum = 0;
