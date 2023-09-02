@@ -1,14 +1,29 @@
-# flutter_project_template
-[![flutter_project_template](https://nokycucwgzweensacwfy.supabase.co/functions/v1/get_project_badge?projectName=flutter_project_template)](https://www.worklog.ai)
+## Task:
+ - The application should: display the text "Hello there" in the middle of the screen and after tapping anywhere on the screen, a background color should be changed to a randomly generated color. You can also add any other feature to the app 
+ - Please do not use any external libraries for color generation
+ - Use solid_lints (https://pub.dev/packages/solid_lints) to perform static code analysis and fix any issues.
 
-📖 Template for flutter projects using solid_lints, CI for tests and analysis.
+## Asking ChatGPT if I can use math library for generating random color:
 
-- Uses latest stable flutter
-- Repo name as your project name
-- Organization from your profile email address or default
+![](gifs/chat_gpt_authoritative_opinion.png)
 
-# Usage
-1. Press "Use this template" on the menu.
-2. Fill Github form with your new repo name and press "Create repository from template"
-3. Wait for it to be created and set up action is complete. In a couple of minutes, you'll see the flutter project created in your repo once Github Actions are complete.
-4. Clone and code.
+## Screens:
+
+### Android:
+<p align="center">
+    <img src="gifs/sample_android.gif" width="25%" />
+</p>
+
+### IOS:
+<p align="center">
+    <img src="gifs/sample_iphone.gif" width="25%" />
+</p>
+
+### Web:
+<p align="center">
+    <img src="gifs/sample_web.gif" width="100%" />
+</p>
+
+
+
+
