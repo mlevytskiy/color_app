@@ -1,17 +1,13 @@
 import 'package:color_app/strings.dart';
-import 'package:color_app/util/color_extension.dart';
+import 'package:color_app/util/color_check_brightness_extension.dart';
 import 'package:color_app/util/random_color_generator.dart';
 import 'package:flutter/material.dart';
-
-void main() {
-  runApp(const ColorApp());
-}
 
 class _Style {
   static const double _homeTextFontSize = 30;
   _Style._();
 
-  ///This method needs at least to make text visible over our background color.
+  ///This method needs to improve text visibility over our background color.
   static TextStyle homeText({required Color backgroundColor}) {
     return TextStyle(
       fontSize: _homeTextFontSize,
@@ -32,12 +28,9 @@ class ColorApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const HomePage(),
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: HomePage(),
     );
   }
 }
@@ -63,11 +56,9 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: GestureDetector(
-        onTap: () {
-          setState(() {
-            backgroundColor = RandomColorGenerator().generateColor();
-          });
-        },
+        onTap: () => setState(
+          () => backgroundColor = RandomColorGenerator().generateColor(),
+        ),
         child: ColoredBox(
           color: backgroundColor,
           child: Center(
