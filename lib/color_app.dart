@@ -48,11 +48,6 @@ class _HomePageState extends State<HomePage> {
   Color backgroundColor = RandomColorGenerator().generateColor();
 
   @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: GestureDetector(
