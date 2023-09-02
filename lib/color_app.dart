@@ -7,8 +7,7 @@ class _Style {
   static const double _homeTextFontSize = 30;
   _Style._();
 
-  ///This method needs to improve text visibility over our background color.
-  static TextStyle homeText({required Color backgroundColor}) {
+  static TextStyle _homeText({required Color backgroundColor}) {
     return TextStyle(
       fontSize: _homeTextFontSize,
       color: _textColor(backgroundColor: backgroundColor),
@@ -45,21 +44,21 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  Color backgroundColor = RandomColorGenerator().generateColor();
+  Color _backgroundColor = RandomColorGenerator().generateColor();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: GestureDetector(
         onTap: () => setState(
-          () => backgroundColor = RandomColorGenerator().generateColor(),
+          () => _backgroundColor = RandomColorGenerator().generateColor(),
         ),
         child: ColoredBox(
-          color: backgroundColor,
+          color: _backgroundColor,
           child: Center(
             child: Text(
               Strings.helloThere,
-              style: _Style.homeText(backgroundColor: backgroundColor),
+              style: _Style._homeText(backgroundColor: _backgroundColor),
             ),
           ),
         ),
