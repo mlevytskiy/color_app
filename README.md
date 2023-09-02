@@ -3,7 +3,7 @@
  - Please do not use any external libraries for color generation
  - Use solid_lints (https://pub.dev/packages/solid_lints) to perform static code analysis and fix any issues.
 
-## Additional feature that wasn't required in the task:
+## Additional feature that wasn't require in the task:
  - changed text color("Hello there") depends on background color. Purpose for that - to make text visible.
 
 ## Asking ChatGPT if I can use 'math' library for generating random color:
