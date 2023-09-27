@@ -28,6 +28,7 @@ class ColorApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
+      restorationScopeId: "root",
       debugShowCheckedModeBanner: false,
       home: HomePage(),
     );
@@ -43,26 +44,40 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
-  Color _backgroundColor = RandomColorGenerator().generateColor();
+class _HomePageState extends State<HomePage> with RestorationMixin {
+  RestorableInt _backgroundColorInt = RestorableInt(RandomColorGenerator().generateColor().value);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: GestureDetector(
         onTap: () => setState(
-          () => _backgroundColor = RandomColorGenerator().generateColor(),
+          () => _backgroundColorInt.value = RandomColorGenerator().generateColor().value,
         ),
         child: ColoredBox(
-          color: _backgroundColor,
+          color: Color(_backgroundColorInt.value),
           child: Center(
             child: Text(
               Strings.helloThere,
-              style: _Style._homeText(backgroundColor: _backgroundColor),
+              style: _Style._homeText(backgroundColor: Color(_backgroundColorInt.value)),
             ),
           ),
         ),
       ),
     );
+  }
+
+  @override
+  String? get restorationId => 'color';
+
+  @override
+  void restoreState(RestorationBucket? oldBucket, bool initialRestore) {
+    registerForRestoration(_backgroundColorInt, 'color');
+  }
+
+  @override
+  void dispose() {
+    _backgroundColorInt.dispose();
+    super.dispose();
   }
 }
