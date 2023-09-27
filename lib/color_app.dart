@@ -1,4 +1,4 @@
-import 'package:color_app/strings.dart';
+import 'package:color_app/pdf_viewer_widget.dart';
 import 'package:color_app/util/color_check_brightness_extension.dart';
 import 'package:color_app/util/random_color_generator.dart';
 import 'package:flutter/material.dart';
@@ -50,21 +50,24 @@ class _HomePageState extends State<HomePage> with RestorationMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: GestureDetector(
-        onTap: () => setState(
-          () => _backgroundColorInt.value = RandomColorGenerator().generateColor().value,
-        ),
-        child: ColoredBox(
-          color: Color(_backgroundColorInt.value),
-          child: Center(
-            child: Text(
-              Strings.helloThere,
-              style: _Style._homeText(backgroundColor: Color(_backgroundColorInt.value)),
-            ),
-          ),
-        ),
-      ),
+      body: Center(child: PdfViewerWidget()),
     );
+    // return Scaffold(
+    //   body: GestureDetector(
+    //     onTap: () => setState(
+    //       () => _backgroundColorInt.value = RandomColorGenerator().generateColor().value,
+    //     ),
+    //     child: ColoredBox(
+    //       color: Color(_backgroundColorInt.value),
+    //       child: Center(
+    //         child: Text(
+    //           Strings.helloThere,
+    //           style: _Style._homeText(backgroundColor: Color(_backgroundColorInt.value)),
+    //         ),
+    //       ),
+    //     ),
+    //   ),
+    // );
   }
 
   @override
